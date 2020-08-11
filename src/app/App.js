@@ -1,17 +1,18 @@
 import React from 'react';
-import FunctionalComponent from './components/FunctionalComponent';
-import PureComponent from './components/PureComponent';
-import ReactComponent from './components/ReactComponent';
-import CreateElementComponent from './components/CreateElementComponent';
 import '../css/main.scss';
+import HeaderComponent from './components/header/HeaderComponent';
+import ContentComponent from './components/content/ContentComponent';
+import FooterComponent from './components/footer/FooterComponent';
+import ErrorBoundary from './components/error-boundary/ErrorBoundary';
 
 export default function App() {
   return (
-    <div className={'app-component'}>
-      <FunctionalComponent />
-      <PureComponent />
-      <ReactComponent />
-      <CreateElementComponent />
-    </div>
+        <>
+            <HeaderComponent/>
+            <ErrorBoundary>
+                <ContentComponent/>
+            </ErrorBoundary>
+            <FooterComponent/>
+        </>
   );
 }

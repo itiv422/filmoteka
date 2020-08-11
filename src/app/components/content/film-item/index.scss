@@ -1,0 +1,33 @@
+@import "../../../../css/variables";
+
+.film-item {
+  margin: 20px 10px;
+  flex-basis: 10%;
+  color: $silver;
+  font-size: 20px;
+
+  img {
+    width: 300px;
+    height: 450px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    font-family: Hack, monospace;
+
+    span {
+      &:last-child {
+        border: 1px solid $matterhorn;
+        border-radius: 4px;
+        padding: 4px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  & > span {
+    color: $matterhorn;
+  }
+}

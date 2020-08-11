@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development --config webpack.config.dev.babel.js --open",
     "build": "webpack --mode production --config webpack.config.prod.babel.js",
     "test": "jest --passWithNoTests",
-    "lint": "eslint \"src/**/*.js\""
+    "lint": "eslint \"src/**/*.js\" --fix"
   },
   "husky": {
     "hooks": {
