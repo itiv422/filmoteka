@@ -19,12 +19,12 @@ const contentComponent = () => {
   });
 
   return <div className={'app-content'}>
-        <div className={'content-management-section'}>
+        <div className={'app-content-management-section'}>
             <ul>
                 {filmTypesFilter.map((filmType) => <li key={filmType.toString()}>
                         <a href="" className={filmType === selectedFilmGenre ? 'active' : ''}>{filmType}</a>
                     </li>)}
-                <li className={'management-section-sorting'}>
+                <li className={'app-management-section-sorting'}>
                     sort by
                     <select defaultValue={'year'} onChange={changeSortType}>
                         <option value="year">release date</option>
@@ -34,7 +34,7 @@ const contentComponent = () => {
             </ul>
             <h2> {numFilmsFound} movies found</h2>
         </div>
-        <div className={'film-list-section'}>
+        <div className={'app-film-list-section'}>
             {filmsList.map((film) => <FilmItemElement {...film} key={film.id}/>)}
         </div>
     </div>;

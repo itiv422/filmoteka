@@ -8,9 +8,9 @@ const headerComponent = () => <header className={'app-header'}>
                 className={'netflix-logo'} alt=""/>
             <a className={'button transparent-btn'}>+ add movie</a>
         </div>
-        <div className={'header-search-section'}>
+        <div className={'app-header-search-section'}>
             <h1>find your movie</h1>
-            <div className={'header-search-form'}>
+            <div className={'app-header-search-form'}>
                 <input className={'header-search-input'} type='text' placeholder='What do you want to watch?'/>
                 <a className={'button'}>search</a>
             </div>

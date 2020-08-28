@@ -3,7 +3,7 @@ import './index.scss';
 import PropTypes from 'prop-types';
 import FilmEditDropDownMenu from './dropDownMenu/FilmEditDropDownMenu';
 
-const filmItemElement = (props) => <div className={'film-item'}>
+const filmItemElement = (props) => <div className={'app-film-item'}>
     <img src={props.imgUrl} alt=""/>
     <div>
         <span>{props.title}</span>

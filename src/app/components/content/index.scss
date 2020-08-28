@@ -3,7 +3,7 @@
 .app-content {
   background-color: $nero;
 
-  .content-management-section {
+  .app-content-management-section {
     margin: 0 5vw;
     color: white;
     font-weight: lighter;
@@ -18,7 +18,7 @@
       padding-inline-start: 0;
       color: $matterhorn;
 
-      .management-section-sorting {
+      .app-management-section-sorting {
         margin-left: auto;
       }
 
@@ -70,7 +70,7 @@
     }
   }
 
-  .film-list-section {
+  .app-film-list-section {
     display: flex;
     flex-flow: row wrap;
     justify-content: flex-start;
