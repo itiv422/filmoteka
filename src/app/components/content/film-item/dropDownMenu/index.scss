@@ -1,0 +1,25 @@
+@import "../../../../../css/variables";
+
+.app-film-drop-down-menu {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  cursor: pointer;
+  .app-film-drop-down-menu-trigger {
+    border: 1px solid $matterhorn;
+    border-radius: 50%;
+    margin-left: 30px;
+    width: 40px;
+    height: 40px;
+
+  }
+  div {
+    margin: 5px;
+    background-color: $nero;
+    border-radius: 3px;
+
+    &:hover {
+      background-color: $matterhorn;
+    }
+  }
+}
