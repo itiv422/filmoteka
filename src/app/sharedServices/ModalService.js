@@ -3,6 +3,10 @@ import { Subject } from 'rxjs';
 export default class ModalService {
     static serviceInstance = null;
 
+    static UPDATE_MODAL_NAME = 'update';
+
+    static DELETE_MODAL_NAME = 'delete';
+
     static getInstance() {
       if (!ModalService.serviceInstance) {
         ModalService.serviceInstance = new ModalService();

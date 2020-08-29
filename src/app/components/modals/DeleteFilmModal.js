@@ -11,18 +11,18 @@ const deleteFilmModal = () => {
   const [isDeleteModalVisible, setIsDeleteModalVisible] = React.useState(false);
   const confirmHandler = () => {
     filmsService.deleteFilmById(filmId);
-    modalService.closeModal('delete');
+    modalService.closeModal(ModalService.DELETE_MODAL_NAME);
   };
 
   modalService.modalStateChange.subscribe((modalEvent) => {
-    if (modalEvent.modalName === 'delete') {
+    if (modalEvent.modalName === ModalService.DELETE_MODAL_NAME) {
       setFilmId(modalEvent.id);
       setIsDeleteModalVisible(modalEvent.isOpen);
     }
   });
   return <>
         {isDeleteModalVisible
-          ? (<CommonModalComponent modalTitle={'delete movie'} modalName={'delete'}>
+          ? (<CommonModalComponent modalTitle={'delete movie'} modalName={ModalService.DELETE_MODAL_NAME}>
                 <div>Are you sure you want to delete this movie?</div>
                 <div className={'app-modal-footer'}>
                     <a className={'button'} onClick={confirmHandler}>confirm</a>

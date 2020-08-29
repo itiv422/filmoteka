@@ -50,5 +50,19 @@
         margin-left: 10px;
       }
     }
+    .app-modal-input-element {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+
+      input {
+        font-size: 20px;
+        background: $gray-transparent;
+        border-radius: 3px;
+        border-color: $gray-transparent;
+        color: $silver;
+      }
+    }
   }
 }

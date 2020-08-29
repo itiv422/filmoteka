@@ -65,8 +65,21 @@ export default class FilmsDataService {
       return this.filmsMock;
     }
 
+    getFilmById(filmId) {
+      const filmElement = this.filmsMock.find((film) => film.id === filmId);
+      return filmElement || {
+        imgUrl: '',
+        title: '',
+        year: null,
+        genre: '',
+      };
+    }
+
     addFilm(film) {
-      this.filmsMock.add(film);
+      const filmElement = { ...film };
+
+      filmElement.id = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER).toString();
+      this.filmsMock.push(filmElement);
       this.filmsListChangedEvt();
     }
 
@@ -76,8 +89,12 @@ export default class FilmsDataService {
     }
 
     updateFilm(film) {
-      this.filmsMock[this.filmsMock.findIndex((filmItem) => filmItem.id === film.id)] = film;
-      this.filmsListChangedEvt();
+      if (film.id) {
+        this.filmsMock[this.filmsMock.findIndex((filmItem) => filmItem.id === film.id)] = film;
+        this.filmsListChangedEvt();
+        return;
+      }
+      this.addFilm(film);
     }
 
     sortFilms(sortField) {

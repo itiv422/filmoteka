@@ -11,15 +11,23 @@
     margin-left: 30px;
     width: 40px;
     height: 40px;
+    background-color: $gray-transparent;
 
   }
-  div {
-    margin: 5px;
-    background-color: $nero;
+  ul {
+    list-style-type: none;
+    background-color: $silver;
     border-radius: 3px;
-
-    &:hover {
+    padding: 1px;
+    li {
+      padding: 2px;
+      margin: 1px;
       background-color: $matterhorn;
+      border-radius: 3px;
+
+      &:hover {
+        background-color: $nero;
+      }
     }
   }
 }

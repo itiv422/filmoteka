@@ -10,14 +10,14 @@ const filmEditDropDownMenu = (props) => {
   return <ul className={'app-film-drop-down-menu'} onClick={() => setIsVisible(!isVisible)}>
         <div className={'app-film-drop-down-menu-trigger'} />
         {isVisible ? (
-            <>
-                <div>
+            <ul>
+                <li onClick={() => modalService.openModal(ModalService.UPDATE_MODAL_NAME, { id: props.id })}>
                     Edit
-                </div>
-                <div onClick={() => modalService.openModal('delete', { id: props.id })}>
+                </li>
+                <li onClick={() => modalService.openModal(ModalService.DELETE_MODAL_NAME, { id: props.id })}>
                     Delete
-                </div>
-            </>) : ''
+                </li>
+            </ul>) : ''
         }
     </ul>;
 };
