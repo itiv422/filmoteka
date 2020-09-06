@@ -49,6 +49,7 @@ export default class FilmsDataService {
     ];
 
     filmsListChanged = new Subject();
+
     filmSelected = new Subject();
 
     static getInstance() {
@@ -106,6 +107,6 @@ export default class FilmsDataService {
     }
 
     selectFilm(filmId) {
-        this.filmSelected.next(this.getFilmById(filmId));
+      this.filmSelected.next(this.getFilmById(filmId));
     }
 }

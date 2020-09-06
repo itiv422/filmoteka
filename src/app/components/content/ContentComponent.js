@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './index.scss';
 import FilmItemElement from './film-item/FilmItemElement';
 import FilmsDataService from '../../sharedServices/FilmsDataService';
@@ -14,13 +14,13 @@ const contentComponent = () => {
   const [numFilmsFound, setNumFilmsFound] = React.useState(filmsList.length);
 
   useEffect(() => {
-        const filmsListChangedSubscription = filmsService.filmsListChanged.subscribe((newFilmsList) => {
-            setFilmsList(newFilmsList);
-            setNumFilmsFound(newFilmsList.length);
-        });
+    const filmsListChangedSubscription = filmsService.filmsListChanged.subscribe((newFilmsList) => {
+      setFilmsList(newFilmsList);
+      setNumFilmsFound(newFilmsList.length);
+    });
 
-        return () => filmsListChangedSubscription.unsubscribe()
-    }, []);
+    return () => filmsListChangedSubscription.unsubscribe();
+  }, []);
 
   return <div className={'app-content'}>
         <div className={'app-content-management-section'}>

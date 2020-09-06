@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import CommonModalComponent from './commonModal/CommonModalComponent';
 import FilmsDataService from '../../sharedServices/FilmsDataService';
 import ModalService from '../../sharedServices/ModalService';
@@ -22,7 +22,7 @@ const deleteFilmModal = () => {
       }
     });
 
-    return () => modalStateChangeSubscription.unsubscribe()
+    return () => modalStateChangeSubscription.unsubscribe();
   }, []);
 
   return <>

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import CommonModalComponent from './commonModal/CommonModalComponent';
 import FilmsDataService from '../../sharedServices/FilmsDataService';
 import ModalService from '../../sharedServices/ModalService';
@@ -30,7 +30,7 @@ const updateFilmModal = () => {
   };
 
   useEffect(() => {
-    const modalStateChangeSubscription =   modalService.modalStateChange.subscribe((modalEvent) => {
+    const modalStateChangeSubscription = modalService.modalStateChange.subscribe((modalEvent) => {
       if (modalEvent.modalName === ModalService.UPDATE_MODAL_NAME) {
         setFilmId(modalEvent.id);
         setFilm(filmsService.getFilmById(modalEvent.id));
@@ -38,7 +38,7 @@ const updateFilmModal = () => {
       }
     });
 
-    return () => modalStateChangeSubscription.unsubscribe()
+    return () => modalStateChangeSubscription.unsubscribe();
   }, []);
 
   return <>

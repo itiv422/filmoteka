@@ -1,22 +1,22 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import './index.scss';
 import ModalService from '../../sharedServices/ModalService';
-import FilmsDataService from "../../sharedServices/FilmsDataService";
+import FilmsDataService from '../../sharedServices/FilmsDataService';
 
 const modalService = ModalService.getInstance();
 const filmsService = FilmsDataService.getInstance();
 
 const headerComponent = () => {
-    const [selectedFilm, setSelectedFilm] = React.useState({});
-    useEffect(() => {
-        const filmSelectSubscription = filmsService.filmSelected.subscribe((newSelectedFilm) => {
-            setSelectedFilm(newSelectedFilm);
-        });
+  const [selectedFilm, setSelectedFilm] = React.useState({});
+  useEffect(() => {
+    const filmSelectSubscription = filmsService.filmSelected.subscribe((newSelectedFilm) => {
+      setSelectedFilm(newSelectedFilm);
+    });
 
-        return () => filmSelectSubscription.unsubscribe()
-    }, []);
+    return () => filmSelectSubscription.unsubscribe();
+  }, []);
 
-    return <header className={'app-header'}>
+  return <header className={'app-header'}>
         {selectedFilm.title ? (<div className={'app-header-film-info'}>
                     <div className={'app-header-film-info-header'}>
                         <img
@@ -49,8 +49,8 @@ const headerComponent = () => {
                         </div>
                     </div>
                 </div>
-            ) :
-            (<>
+        )
+          : (<>
                 <div className={'header-title-section'}>
                     <img
                         src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png'
@@ -67,6 +67,6 @@ const headerComponent = () => {
                 </div>
             </>)}
     </header>;
-}
+};
 
 export default headerComponent;
