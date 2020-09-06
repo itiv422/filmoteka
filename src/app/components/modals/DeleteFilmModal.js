@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CommonModalComponent from './commonModal/CommonModalComponent';
 import FilmsDataService from '../../sharedServices/FilmsDataService';
 import ModalService from '../../sharedServices/ModalService';
@@ -14,12 +14,17 @@ const deleteFilmModal = () => {
     modalService.closeModal(ModalService.DELETE_MODAL_NAME);
   };
 
-  modalService.modalStateChange.subscribe((modalEvent) => {
-    if (modalEvent.modalName === ModalService.DELETE_MODAL_NAME) {
-      setFilmId(modalEvent.id);
-      setIsDeleteModalVisible(modalEvent.isOpen);
-    }
-  });
+  useEffect(() => {
+    const modalStateChangeSubscription = modalService.modalStateChange.subscribe((modalEvent) => {
+      if (modalEvent.modalName === ModalService.DELETE_MODAL_NAME) {
+        setFilmId(modalEvent.id);
+        setIsDeleteModalVisible(modalEvent.isOpen);
+      }
+    });
+
+    return () => modalStateChangeSubscription.unsubscribe()
+  }, []);
+
   return <>
         {isDeleteModalVisible
           ? (<CommonModalComponent modalTitle={'delete movie'} modalName={ModalService.DELETE_MODAL_NAME}>

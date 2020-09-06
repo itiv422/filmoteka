@@ -7,15 +7,16 @@
   align-items: center;
   flex-direction: column;
 
+  .netflix-logo {
+    max-width: 250px;
+    display: block;
+  }
+
   .header-title-section {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
-    .netflix-logo {
-      max-width: 250px;
-    }
 
     * {
       margin: 20px;
@@ -49,6 +50,55 @@
         background: $gray-transparent;
         border-radius: 3px;
         border-color: $gray-transparent;
+      }
+    }
+  }
+
+  .app-header-film-info {
+    width: calc(100% - 80px);
+    color: $silver;
+    padding: 20px 40px;
+    background-color: $gray-transparent;
+    backdrop-filter: blur(4px);
+    .app-header-film-info-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .app-header-film-info-search {
+        cursor: pointer;
+        font-size: 40px;
+      }
+    }
+    .app-header-film-info-header-section {
+      padding: 10px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      img {
+        width: 300px;
+        height: 450px;
+      }
+      .app-header-film-info-header-section-content {
+        padding: 10px;
+        .app-header-film-info-header-section-header {
+          font-size: 50px;
+        }
+        .app-header-film-info-header-section-sub-header {
+          padding: 5px 10px 5px 0;
+          font-size: 20px;
+        }
+        .app-header-film-info-header-section-info {
+          color: $wild-watermelon;
+          font-size: 30px;
+          span {
+            padding: 5px 10px 5px 0;
+          }
+        }
+        .app-header-film-info-header-section-description {
+          padding: 15px 0 0 0;
+          font-size: 20px;
+        }
       }
     }
   }

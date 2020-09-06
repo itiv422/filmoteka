@@ -49,6 +49,7 @@ export default class FilmsDataService {
     ];
 
     filmsListChanged = new Subject();
+    filmSelected = new Subject();
 
     static getInstance() {
       if (!FilmsDataService.serviceInstance) {
@@ -102,5 +103,9 @@ export default class FilmsDataService {
 
       this.filmsMock = this.filmsMock.sort(comparator);
       this.filmsListChangedEvt();
+    }
+
+    selectFilm(filmId) {
+        this.filmSelected.next(this.getFilmById(filmId));
     }
 }

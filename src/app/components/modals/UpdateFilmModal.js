@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import CommonModalComponent from './commonModal/CommonModalComponent';
 import FilmsDataService from '../../sharedServices/FilmsDataService';
 import ModalService from '../../sharedServices/ModalService';
@@ -29,13 +29,18 @@ const updateFilmModal = () => {
     updateFormRef.imgUrl.value = '';
   };
 
-  modalService.modalStateChange.subscribe((modalEvent) => {
-    if (modalEvent.modalName === ModalService.UPDATE_MODAL_NAME) {
-      setFilmId(modalEvent.id);
-      setFilm(filmsService.getFilmById(modalEvent.id));
-      setIsUpdateModalVisible(modalEvent.isOpen);
-    }
-  });
+  useEffect(() => {
+    const modalStateChangeSubscription =   modalService.modalStateChange.subscribe((modalEvent) => {
+      if (modalEvent.modalName === ModalService.UPDATE_MODAL_NAME) {
+        setFilmId(modalEvent.id);
+        setFilm(filmsService.getFilmById(modalEvent.id));
+        setIsUpdateModalVisible(modalEvent.isOpen);
+      }
+    });
+
+    return () => modalStateChangeSubscription.unsubscribe()
+  }, []);
+
   return <>
         {isUpdateModalVisible
           ? (<CommonModalComponent modalTitle={filmId ? 'update movie' : 'add movie'} modalName={ModalService.UPDATE_MODAL_NAME}>
