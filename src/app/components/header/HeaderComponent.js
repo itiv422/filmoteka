@@ -7,34 +7,42 @@ const modalService = ModalService.getInstance();
 const filmsService = FilmsDataService.getInstance();
 
 const headerComponent = () => {
-  const [selectedFilm, setSelectedFilm] = React.useState({});
-  useEffect(() => {
-    const filmSelectSubscription = filmsService.selectedFilm.subscribe((newSelectedFilm) => {
-      setSelectedFilm(newSelectedFilm);
-    });
 
-    return () => filmSelectSubscription.unsubscribe();
-  }, []);
+  const useSelectedFilmStatus = () =>
+  {
+    const [selectedFilm, setSelectedFilm] = React.useState({});
+    useEffect(() => {
+      const filmSelectSubscription = filmsService.selectedFilm.subscribe((newSelectedFilm) => {
+        setSelectedFilm(newSelectedFilm);
+      });
+
+      return () => filmSelectSubscription.unsubscribe();
+    }, []);
+
+    return selectedFilm
+  }
+
+  const {imgUrl, title, year, genre} = useSelectedFilmStatus();
 
   return <header className={'app-header'}>
-        {selectedFilm.title ? (<div className={'app-header-film-info'}>
+        {title ? (<div className={'app-header-film-info'}>
                     <div className={'app-header-film-info-header'}>
                         <img
                             src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png'
                             className={'netflix-logo'} alt=""/>
-                        <div className={'app-header-film-info-search'} onClick={filmsService.selectFilm}>&#128270;</div>
+                        <div className={'app-header-film-info-search'} onClick={() => filmsService.selectFilm()}>&#128270;</div>
                     </div>
                     <div className={'app-header-film-info-header-section'}>
                         <img
-                            src={selectedFilm.imgUrl}
+                            src={imgUrl}
                             alt=""/>
                         <div>
                             <div className={'app-header-film-info-header-section-content'}>
-                                <div className={'app-header-film-info-header-section-header'}>{selectedFilm.title}</div>
-                                <div className={'app-header-film-info-header-section-sub-header'}>{selectedFilm.genre}</div>
+                                <div className={'app-header-film-info-header-section-header'}>{title}</div>
+                                <div className={'app-header-film-info-header-section-sub-header'}>{genre}</div>
 
                                 <div className={'app-header-film-info-header-section-info'}>
-                                    <span>{selectedFilm.year}</span><span>154 min</span>
+                                    <span>{year}</span><span>154 min</span>
                                 </div>
                                 <div className={'app-header-film-info-header-section-description'}>
                                     Бухгалтер Энди Дюфрейн обвинён в убийстве собственной жены и её любовника. Оказавшись в
