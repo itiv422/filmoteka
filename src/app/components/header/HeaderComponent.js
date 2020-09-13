@@ -7,9 +7,7 @@ const modalService = ModalService.getInstance();
 const filmsService = FilmsDataService.getInstance();
 
 const headerComponent = () => {
-
-  const useSelectedFilmStatus = () =>
-  {
+  const useSelectedFilmStatus = () => {
     const [selectedFilm, setSelectedFilm] = React.useState({});
     useEffect(() => {
       const filmSelectSubscription = filmsService.selectedFilm.subscribe((newSelectedFilm) => {
@@ -19,10 +17,12 @@ const headerComponent = () => {
       return () => filmSelectSubscription.unsubscribe();
     }, []);
 
-    return selectedFilm
-  }
+    return selectedFilm;
+  };
 
-  const {imgUrl, title, year, genre} = useSelectedFilmStatus();
+  const {
+    imgUrl, title, year, genre,
+  } = useSelectedFilmStatus();
 
   return <header className={'app-header'}>
         {title ? (<div className={'app-header-film-info'}>
