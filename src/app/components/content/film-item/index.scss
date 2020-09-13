@@ -1,10 +1,11 @@
 @import "../../../../css/variables";
 
-.film-item {
+.app-film-item {
   margin: 20px 10px;
   flex-basis: 10%;
   color: $silver;
   font-size: 20px;
+  position: relative;
 
   img {
     width: 300px;
