@@ -1,0 +1,68 @@
+@import "../../../../css/variables";
+
+.app-common-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $gray-transparent;
+  backdrop-filter: blur(4px);
+
+  .app-common-modal-content {
+    background-color: $nero;
+    position: absolute;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 100;
+    color: $silver;
+    font-size: 20px;
+    padding: 20px;
+
+
+    .app-modal-title {
+      font-size: 40px;
+      padding: 16px 0;
+      display: block;
+    }
+
+    .app-modal-close{
+      position: absolute;
+      right: 0;
+      padding: 0 16px;
+      font-size: 50px;
+      cursor: pointer;
+      display: block;
+    }
+
+    .app-modal-footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 10px;
+
+      .button {
+        margin-left: 10px;
+      }
+    }
+    .app-modal-input-element {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 10px;
+
+      input {
+        font-size: 20px;
+        background: $gray-transparent;
+        border-radius: 3px;
+        border-color: $gray-transparent;
+        color: $silver;
+      }
+    }
+  }
+}

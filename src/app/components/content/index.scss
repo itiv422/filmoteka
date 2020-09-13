@@ -1,0 +1,81 @@
+@import "../../../css/variables";
+
+.app-content {
+  background-color: $nero;
+
+  .app-content-management-section {
+    margin: 0 5vw;
+    color: white;
+    font-weight: lighter;
+    font-family: monospace;
+
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+      align-items: center;
+      list-style-type: none;
+      padding-inline-start: 0;
+      color: $matterhorn;
+
+      .app-management-section-sorting {
+        margin-left: auto;
+      }
+
+      li {
+        font-size: 20px;
+        font-family: monospace;
+        text-transform: uppercase;
+        margin: 0 10px;
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+
+        a {
+          color: white;
+          cursor: pointer;
+          text-decoration: none;
+
+          &.active {
+            position: relative;
+            z-index: 2;
+            border-bottom: 4px solid $wild-watermelon;
+            padding-bottom: 13px;
+          }
+        }
+
+        select {
+          color: white;
+          background: $nero;
+          border: none;
+          font-size: 16px;
+          margin: 10px;
+          text-transform: uppercase;
+          appearance: none;
+        }
+      }
+
+      &:after {
+        content: '';
+        position: relative;
+        z-index: 1;
+        margin-top: 5px;
+        width: 100%;
+        height: 4px;
+        background-color: $gray-charcoal;
+      }
+    }
+  }
+
+  .app-film-list-section {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    margin: 20px auto;
+    width: 80vw;
+  }
+}

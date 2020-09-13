@@ -9,7 +9,7 @@
     "start": "webpack-dev-server --mode development --config webpack.config.dev.babel.js --open",
     "build": "webpack --mode production --config webpack.config.prod.babel.js",
     "test": "jest --passWithNoTests",
-    "lint": "eslint \"src/**/*.js\""
+    "lint": "eslint \"src/**/*.js\" --fix"
   },
   "husky": {
     "hooks": {
@@ -22,7 +22,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "rxjs": "^6.6.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.5",
