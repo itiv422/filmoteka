@@ -43,7 +43,7 @@ const updateFilmModal = () => {
 
   return <>
         {isUpdateModalVisible
-          ? (<CommonModalComponent modalTitle={filmId ? 'update movie' : 'add movie'} modalName={ModalService.UPDATE_MODAL_NAME}>
+          && (<CommonModalComponent modalTitle={(filmId && 'update movie') || 'add movie'} modalName={ModalService.UPDATE_MODAL_NAME}>
                 <form onSubmit={handleSubmit} ref={(el) => { updateFormRef = el; }}>
                     {filmId ? (
                             <label className={'app-modal-input-element'}>id
@@ -67,7 +67,7 @@ const updateFilmModal = () => {
                     </div>
                 </form>
 
-            </CommonModalComponent>) : ''}
+            </CommonModalComponent>)}
     </>;
 };
 

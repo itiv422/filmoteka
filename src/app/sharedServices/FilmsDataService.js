@@ -48,19 +48,18 @@ export default class FilmsDataService {
       },
     ];
 
-    filmsListChanged = new Subject();
+    filmsList = new Subject();
 
-    filmSelected = new Subject();
+    selectedFilm = new Subject();
 
     static getInstance() {
-      if (!FilmsDataService.serviceInstance) {
-        FilmsDataService.serviceInstance = new FilmsDataService();
-      }
+      FilmsDataService.serviceInstance = FilmsDataService.serviceInstance || new FilmsDataService();
+
       return FilmsDataService.serviceInstance;
     }
 
     filmsListChangedEvt() {
-      this.filmsListChanged.next(this.filmsMock.slice());
+      this.filmsList.next(this.filmsMock.slice());
     }
 
     getAllFilms() {
@@ -107,6 +106,6 @@ export default class FilmsDataService {
     }
 
     selectFilm(filmId) {
-      this.filmSelected.next(this.getFilmById(filmId));
+      this.selectedFilm.next(this.getFilmById(filmId));
     }
 }

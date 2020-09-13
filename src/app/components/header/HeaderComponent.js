@@ -9,7 +9,7 @@ const filmsService = FilmsDataService.getInstance();
 const headerComponent = () => {
   const [selectedFilm, setSelectedFilm] = React.useState({});
   useEffect(() => {
-    const filmSelectSubscription = filmsService.filmSelected.subscribe((newSelectedFilm) => {
+    const filmSelectSubscription = filmsService.selectedFilm.subscribe((newSelectedFilm) => {
       setSelectedFilm(newSelectedFilm);
     });
 
@@ -22,7 +22,7 @@ const headerComponent = () => {
                         <img
                             src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png'
                             className={'netflix-logo'} alt=""/>
-                        <div className={'app-header-film-info-search'} onClick={() => filmsService.selectFilm()}>&#128270;</div>
+                        <div className={'app-header-film-info-search'} onClick={filmsService.selectFilm}>&#128270;</div>
                     </div>
                     <div className={'app-header-film-info-header-section'}>
                         <img
@@ -51,7 +51,7 @@ const headerComponent = () => {
                 </div>
         )
           : (<>
-                <div className={'header-title-section'}>
+                <div className={'app-header-title-section'}>
                     <img
                         src='https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1920px-Netflix_2015_logo.svg.png'
                         className={'netflix-logo'} alt=""/>

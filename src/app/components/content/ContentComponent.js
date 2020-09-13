@@ -14,7 +14,7 @@ const contentComponent = () => {
   const [numFilmsFound, setNumFilmsFound] = React.useState(filmsList.length);
 
   useEffect(() => {
-    const filmsListChangedSubscription = filmsService.filmsListChanged.subscribe((newFilmsList) => {
+    const filmsListChangedSubscription = filmsService.filmsList.subscribe((newFilmsList) => {
       setFilmsList(newFilmsList);
       setNumFilmsFound(newFilmsList.length);
     });
