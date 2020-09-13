@@ -15,10 +15,10 @@ const deleteFilmModal = () => {
   };
 
   useEffect(() => {
-    const modalStateChangeSubscription = modalService.modalStateChange.subscribe((modalEvent) => {
-      if (modalEvent.modalName === ModalService.DELETE_MODAL_NAME) {
-        setFilmId(modalEvent.id);
-        setIsDeleteModalVisible(modalEvent.isOpen);
+    const modalStateChangeSubscription = modalService.modalStateChange.subscribe(({modalName, id, isOpen}) => {
+      if (modalName === ModalService.DELETE_MODAL_NAME) {
+        setFilmId(id);
+        setIsDeleteModalVisible(isOpen);
       }
     });
 

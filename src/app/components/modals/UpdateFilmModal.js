@@ -30,11 +30,11 @@ const updateFilmModal = () => {
   };
 
   useEffect(() => {
-    const modalStateChangeSubscription = modalService.modalStateChange.subscribe((modalEvent) => {
-      if (modalEvent.modalName === ModalService.UPDATE_MODAL_NAME) {
-        setFilmId(modalEvent.id);
-        setFilm(filmsService.getFilmById(modalEvent.id));
-        setIsUpdateModalVisible(modalEvent.isOpen);
+    const modalStateChangeSubscription = modalService.modalStateChange.subscribe(({modalName, id, isOpen}) => {
+      if (modalName === ModalService.UPDATE_MODAL_NAME) {
+        setFilmId(id);
+        setFilm(filmsService.getFilmById(id));
+        setIsUpdateModalVisible(isOpen);
       }
     });
 
