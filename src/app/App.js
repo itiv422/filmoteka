@@ -11,8 +11,10 @@ export default function App() {
   return (
         <>
             <HeaderComponent/>
-            <DeleteFilmModal/>
-            <UpdateFilmModal/>
+            <ErrorBoundary>
+                <DeleteFilmModal/>
+                <UpdateFilmModal/>
+            </ErrorBoundary>
             <ErrorBoundary>
                 <ContentComponent/>
             </ErrorBoundary>
